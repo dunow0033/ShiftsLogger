@@ -1,0 +1,5 @@
+C:\Users\bedon\source\repos\ShiftsLoggerApi\ShiftsLoggerApi\obj\Debug\net6.0\ShiftsLoggerApi.csproj.AssemblyReference.cache
+C:\Users\bedon\source\repos\ShiftsLoggerApi\ShiftsLoggerApi\obj\Debug\net6.0\ShiftsLoggerApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bedon\source\repos\ShiftsLoggerApi\ShiftsLoggerApi\obj\Debug\net6.0\ShiftsLoggerApi.AssemblyInfoInputs.cache
+C:\Users\bedon\source\repos\ShiftsLoggerApi\ShiftsLoggerApi\obj\Debug\net6.0\ShiftsLoggerApi.AssemblyInfo.cs
+C:\Users\bedon\source\repos\ShiftsLoggerApi\ShiftsLoggerApi\obj\Debug\net6.0\ShiftsLoggerApi.csproj.CoreCompileInputs.cache
