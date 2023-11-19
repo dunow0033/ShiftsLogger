@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Net.Http.Json;
 using System.Text;
-using System.Net.Http;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Xml.Linq;
+using System.Text.Json;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using Spectre.Console;
 
 namespace ShiftsUI.API;
 
@@ -55,41 +51,59 @@ class APIcalling
 		}
 	}
 
-	public static async void AddShift()
+	public static async Task<bool> AddShift()
 	{
+		string startOfShift, endOfShift;
+
+		string employeeName = AnsiConsole.Ask<string>("Enter the employee name:");
+		
+			startOfShift = AnsiConsole.Ask<string>("Enter the start of shift:");
+		
+			endOfShift = AnsiConsole.Ask<string>("Enter the end of shift:");		
+
+		ShiftDto newShift = new()
+		{
+			Id = 0,
+			EmployeeName = employeeName,
+			StartOfShift = DateTime.Parse(startOfShift),
+			EndOfShift = DateTime.Parse(endOfShift)
+		};
+
 		url = $"https://localhost:7275/api/Shift";
+
+		var json = JsonSerializer.Serialize(newShift);
+
+		var content = new StringContent(json, Encoding.UTF8, "application/json");
 
 		HttpClient httpClient = new HttpClient();
 
-		using (HttpResponseMessage response = await httpClient.PostAsync(url, ))
+		try
 		{
-			if (response.IsSuccessStatusCode)
+			using (HttpResponseMessage response = await httpClient.PostAsync(url, content))
 			{
-				string jsonResponse = await response.Content.ReadAsStringAsync();
-
-				var shiftDataArray = JArray.Parse(jsonResponse);
-
-				//var shiftData = JObject.Parse(jsonResponse);
-				//Dictionary<string, string> movieData = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonResponse);
-
-				//Console.WriteLine(movies);
-
-				foreach (var shiftData in shiftDataArray)
+				if (response.IsSuccessStatusCode)
 				{
-					string EmployeeName = (string)shiftData["employeeName"];
-					string StartOfShift = (string)shiftData["startOfShift"];
-					string EndOfShift = (string)shiftData["endOfShift"];
-
-					Console.WriteLine($"Employee Name: {EmployeeName}");
-					Console.WriteLine($"\nStart of Shift:  {StartOfShift}");
-					Console.WriteLine($"\nEnd of Shift:  {EndOfShift}");
 					Console.WriteLine();
+					Console.WriteLine();
+					Console.WriteLine("Press Any Key to continue......");
+					return true;
 				}
-
-				Console.WriteLine();
-				Console.WriteLine();
-				Console.WriteLine("Press Any Key to continue......");
+				else
+				{
+					Console.WriteLine();
+					Console.WriteLine();
+					Console.WriteLine("Press Any Key to continue......");
+					return false;
+				}
 			}
+		}
+		catch (Exception ex)
+		{
+			AnsiConsole.WriteLine($"API Service isn't responding. - {ex.Message}");
+			Console.WriteLine();
+			Console.WriteLine();
+			Console.WriteLine("Press Any Key to continue......");
+			return false;
 		}
 	}
 }

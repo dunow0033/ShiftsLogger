@@ -13,10 +13,10 @@ internal class Program
 			Console.Clear();
 			Console.WriteLine("Please enter your selection:  ");
 			Console.WriteLine("1. List All Shifts");
-			Console.WriteLine("3. Add A Shift");
-			Console.WriteLine("4. Update A Shift");
-			Console.WriteLine("5. Delete A Shift");
-			Console.WriteLine("6. Exit\n");
+			Console.WriteLine("2. Add A Shift");
+			Console.WriteLine("3. Update A Shift");
+			Console.WriteLine("4. Delete A Shift");
+			Console.WriteLine("5. Exit\n");
 			string selectedOption = Console.ReadLine();
 
 			switch (selectedOption)
@@ -33,7 +33,7 @@ internal class Program
 				//case "5":
 				//	DeleteShift();
 				//	break;
-				case "6":
+				case "5":
 					Console.WriteLine("Thank you!!  Bye!!");
 					Environment.Exit(1);
 					break;

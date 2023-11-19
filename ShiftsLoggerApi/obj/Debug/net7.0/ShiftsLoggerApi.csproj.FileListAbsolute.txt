@@ -252,3 +252,4 @@ C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsLoggerApi\obj\Debug\net7.0\ref
 C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsLoggerApi\obj\Debug\net7.0\ShiftsLoggerApi.pdb
 C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsLoggerApi\obj\Debug\net7.0\ShiftsLoggerApi.genruntimeconfig.cache
 C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsLoggerApi\obj\Debug\net7.0\ref\ShiftsLoggerApi.dll
+C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsLoggerApi\bin\Debug\net7.0\Spectre.Console.dll

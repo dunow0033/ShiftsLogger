@@ -15,3 +15,4 @@ C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\obj\Debug\net6.0\ShiftsUI.g
 C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\obj\Debug\net6.0\ref\ShiftsUI.dll
 C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\obj\Debug\net6.0\ShiftsUI.csproj.CopyComplete
+C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\bin\Debug\net6.0\Spectre.Console.dll
