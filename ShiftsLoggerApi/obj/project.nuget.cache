@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WYe1NXAWUt48EHlUhm+VKmMGZhd/ajNlSK1Jl34qIYuogTkgVqeOxYIwQRoC74gSmbNYDRUkS89kW9TwFdfhEQ==",
+  "dgSpecHash": "qHH5krH74yXEgojkrVu9H50CY1LVTzPv5aPB2pgRAk2+r62+Wd/JuVYUDil6Y1UM2Ryy4Ml6oNXZvbeUBaotjA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerApi\\ShiftsLoggerApi\\ShiftsLoggerApi.csproj",
+  "projectFilePath": "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerAPI\\ShiftsLoggerApi\\ShiftsLoggerApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bedon\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\bedon\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

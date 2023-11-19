@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "NR82Tp+Mkk1oMYuPmLWEtuQ6x0w837kRcBfZXdmqz27Dm0Xee9MmPL3uKbsOYTec0e+Nyfivhgc/C8FnTKISZw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerAPI\\ShiftsUI\\ShiftsUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bedon\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

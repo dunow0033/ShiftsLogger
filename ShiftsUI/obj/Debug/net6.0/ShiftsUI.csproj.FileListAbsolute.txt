@@ -1,0 +1,17 @@
+C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\obj\Debug\net6.0\ShiftsUI.csproj.AssemblyReference.cache
+C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\obj\Debug\net6.0\ShiftsUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\obj\Debug\net6.0\ShiftsUI.AssemblyInfoInputs.cache
+C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\obj\Debug\net6.0\ShiftsUI.AssemblyInfo.cs
+C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\obj\Debug\net6.0\ShiftsUI.csproj.CoreCompileInputs.cache
+C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\bin\Debug\net6.0\ShiftsUI.exe
+C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\bin\Debug\net6.0\ShiftsUI.deps.json
+C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\bin\Debug\net6.0\ShiftsUI.runtimeconfig.json
+C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\bin\Debug\net6.0\ShiftsUI.dll
+C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\bin\Debug\net6.0\ShiftsUI.pdb
+C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\obj\Debug\net6.0\ShiftsUI.dll
+C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\obj\Debug\net6.0\refint\ShiftsUI.dll
+C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\obj\Debug\net6.0\ShiftsUI.pdb
+C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\obj\Debug\net6.0\ShiftsUI.genruntimeconfig.cache
+C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\obj\Debug\net6.0\ref\ShiftsUI.dll
+C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\bedon\source\repos\ShiftsLoggerAPI\ShiftsUI\obj\Debug\net6.0\ShiftsUI.csproj.CopyComplete
