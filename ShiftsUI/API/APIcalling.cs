@@ -27,10 +27,9 @@ class APIcalling
 
 				var shiftDataArray = JArray.Parse(jsonResponse);
 
-				//var shiftData = JObject.Parse(jsonResponse);
-				//Dictionary<string, string> movieData = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonResponse);
-
-				//Console.WriteLine(movies);
+				Table table = new Table();
+				table.Expand();
+				table.AddColumns("Employee Name", "Start of Shift", "End of Shift");
 
 				foreach (var shiftData in shiftDataArray)
 				{
@@ -38,11 +37,11 @@ class APIcalling
 					string StartOfShift = (string)shiftData["startOfShift"];
 					string EndOfShift = (string)shiftData["endOfShift"];
 
-					Console.WriteLine($"Employee Name: {EmployeeName}");
-					Console.WriteLine($"\nStart of Shift:  {StartOfShift}");
-					Console.WriteLine($"\nEnd of Shift:  {EndOfShift}");
-					Console.WriteLine();
+					table.AddRow($"{EmployeeName}", $"{StartOfShift}", $"{EndOfShift}");
 				}
+
+				Console.Clear();
+				AnsiConsole.Write(table);
 
 				Console.WriteLine();
 				Console.WriteLine();
@@ -56,14 +55,14 @@ class APIcalling
 		string startOfShift, endOfShift;
 
 		string employeeName = AnsiConsole.Ask<string>("Enter the employee name:");
-		
-			startOfShift = AnsiConsole.Ask<string>("Enter the start of shift:");
-		
-			endOfShift = AnsiConsole.Ask<string>("Enter the end of shift:");		
+
+		startOfShift = AnsiConsole.Ask<string>("Enter the start of shift:");
+
+		endOfShift = AnsiConsole.Ask<string>("Enter the end of shift:");
 
 		ShiftDto newShift = new()
 		{
-			Id = 0,
+			//Id = 0,
 			EmployeeName = employeeName,
 			StartOfShift = DateTime.Parse(startOfShift),
 			EndOfShift = DateTime.Parse(endOfShift)
@@ -105,5 +104,65 @@ class APIcalling
 			Console.WriteLine("Press Any Key to continue......");
 			return false;
 		}
+	}
+
+	public static async void DeleteShift()
+	{
+		AnsiConsole.Clear();
+		Console.WriteLine("Select which Shift to Remove");
+
+		url = $"https://localhost:7275/api/Shift";
+
+		HttpClient httpClient = new HttpClient();
+
+		string selectedShift = "";
+
+		using (HttpResponseMessage response = await httpClient.GetAsync(url))
+		{
+			if (response.IsSuccessStatusCode)
+			{
+				string jsonResponse = await response.Content.ReadAsStringAsync();
+
+				var shiftDataArray = JArray.Parse(jsonResponse);
+
+				Table table = new Table();
+				table.Expand();
+				table.AddColumns("Id", "Employee Name", "Start of Shift", "End of Shift");
+
+				foreach (var shiftData in shiftDataArray)
+				{
+					int Id = (int)shiftData["id"];
+					string EmployeeName = (string)shiftData["employeeName"];
+					string StartOfShift = (string)shiftData["startOfShift"];
+					string EndOfShift = (string)shiftData["endOfShift"];
+
+					table.AddRow($"{Id}", $"{EmployeeName}", $"{StartOfShift}", $"{EndOfShift}");
+				}
+
+				AnsiConsole.Write(table);
+			}
+		}
+
+				selectedShift = AnsiConsole.Ask<string>("Enter the ID of the Shift you want to remove:");
+
+				using (HttpResponseMessage deleteResponse = await httpClient.DeleteAsync(selectedShift))
+				{
+					if (deleteResponse.IsSuccessStatusCode)
+					{
+						AnsiConsole.WriteLine("Your selected Shift was deleted");
+						Console.WriteLine();
+						Console.WriteLine();
+						Console.WriteLine("Press Any Key to continue......");
+					}
+					else
+					{
+						AnsiConsole.WriteLine("Couldn't delete shift");
+						Console.WriteLine();
+						Console.WriteLine();
+						Console.WriteLine("Press Any Key to continue......");
+					}
+				}
+			
+		
 	}
 }

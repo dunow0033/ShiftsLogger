@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerAPI\\ShiftsLoggerApi\\ShiftsLoggerApi.csproj": {}
+    "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerApi\\ShiftsLoggerApi\\ShiftsLoggerApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerAPI\\ShiftsLoggerApi\\ShiftsLoggerApi.csproj": {
+    "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerApi\\ShiftsLoggerApi\\ShiftsLoggerApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerAPI\\ShiftsLoggerApi\\ShiftsLoggerApi.csproj",
+        "projectUniqueName": "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerApi\\ShiftsLoggerApi\\ShiftsLoggerApi.csproj",
         "projectName": "ShiftsLoggerApi",
-        "projectPath": "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerAPI\\ShiftsLoggerApi\\ShiftsLoggerApi.csproj",
+        "projectPath": "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerApi\\ShiftsLoggerApi\\ShiftsLoggerApi.csproj",
         "packagesPath": "C:\\Users\\bedon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerAPI\\ShiftsLoggerApi\\obj\\",
+        "outputPath": "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerApi\\ShiftsLoggerApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bedon\\AppData\\Roaming\\NuGet\\NuGet.Config",
