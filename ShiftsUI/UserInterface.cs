@@ -34,16 +34,20 @@ internal class UserInterface
 			switch (selectedOption)
 			{
 				case "1":
-					ListShifts();
+					await ListShifts();
+					Console.ReadKey();
 					break;
 				case "2":
-					AddShift();
+					await AddShift();
+					Console.ReadKey();
 					break;
 				case "3":
-					UpdateShift();
+					await UpdateShift();
+					Console.ReadKey();
 					break;
 				case "4":
-					DeleteShift();
+					await DeleteShift();
+					Console.ReadKey();
 					break;
 				case "5":
 					Console.WriteLine("Thank you!!  Bye!!");
@@ -57,7 +61,7 @@ internal class UserInterface
 		}
 	}
 
-		private async void ListShifts()
+		private async Task ListShifts()
 		{
 			List<Shift>? shifts = (await _controller.GetShifts()).ToList();
 
@@ -74,24 +78,19 @@ internal class UserInterface
 			AnsiConsole.Write(table);
 
 			Console.WriteLine("\n\nPress Any Key to continue......");
-			Console.ReadKey();
 	}
 
-		public static void AddShift()
+		public async Task AddShift()
 		{
 			APIcalling.AddShift();
-
-			Console.ReadKey();
 		}
 
-		public static void UpdateShift()
+		public async Task UpdateShift()
 		{
 			//APIcalling.UpdateShift();
-
-			Console.ReadKey();
 		}
 
-		public static void DeleteShift()
+		public async Task DeleteShift()
 		{
 			APIcalling.DeleteShift();
 
