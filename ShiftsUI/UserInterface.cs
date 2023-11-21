@@ -63,6 +63,7 @@ internal class UserInterface
 
 		private async Task ListShifts()
 		{
+			Console.Clear();
 			List<Shift>? shifts = (await _controller.GetShifts()).ToList();
 
 			Table table = new Table();
@@ -73,8 +74,7 @@ internal class UserInterface
 			{
 				table.AddRow($"{shift.EmployeeName}", $"{shift.StartOfShift}", $"{shift.EndOfShift}");
 			}
-
-			Console.Clear();
+			
 			AnsiConsole.Write(table);
 
 			Console.WriteLine("\n\nPress Any Key to continue......");
@@ -82,8 +82,34 @@ internal class UserInterface
 
 		public async Task AddShift()
 		{
-			APIcalling.AddShift();
+			Console.Clear();
+			string startOfShift, endOfShift;
+
+			string employeeName = AnsiConsole.Ask<string>("Enter the employee name:");
+		
+			startOfShift = AnsiConsole.Ask<string>("Enter the start of shift (MM/dd/yyyy HH:mm):");
+			endOfShift = AnsiConsole.Ask<string>("Enter the end of shift (MM/dd/yyyy HH:mm):");
+
+		ShiftDto newShift = new()
+		{
+			//Id = 0,
+			EmployeeName = employeeName,
+			StartOfShift = DateTime.Parse(startOfShift),
+			EndOfShift = DateTime.Parse(endOfShift)
+		};
+
+		var result = await _controller.PostShift(newShift);
+
+		if (result)
+		{
+			AnsiConsole.WriteLine("Your shift has been added.");
 		}
+		else
+		{
+			AnsiConsole.WriteLine("Your shift didn't get added correctly, try again!");
+		}
+		Console.WriteLine("Press any key to continue.");
+	}
 
 		public async Task UpdateShift()
 		{
