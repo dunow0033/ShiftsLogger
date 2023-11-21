@@ -25,4 +25,14 @@ internal class ShiftLoggerController
 	{
 		return await _apiRepo.PostShift(newShift);
 	}
+
+	internal async Task<bool> UpdateShift(ShiftDto newShift)
+	{
+		return await _apiRepo.UpdateShift(newShift);
+	}
+
+	public async Task<Shift> GetShift(int id)
+	{
+		return await _apiRepo.GetShift(id);
+	}
 }

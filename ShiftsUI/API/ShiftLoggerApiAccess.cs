@@ -60,4 +60,39 @@ internal class ShiftLoggerApiAccess : IShiftsLoggerApiAccess
 			return false;
 		}
 	}
+
+	public async Task<Shift> GetShift(int id)
+	{
+		Shift? response = null;
+		try
+		{
+			response = await _apiClient.GetFromJsonAsync<Shift>($"{id}");
+		}
+		catch (Exception ex)
+		{
+			AnsiConsole.WriteLine($"API Service isn't responding. - {ex.Message}");
+		}
+
+		return response;
+	}
+
+	public async Task<bool> UpdateShift(ShiftDto newShift)
+	{
+		try
+		{
+			using (HttpResponseMessage response = await _apiClient.PutAsJsonAsync($"{newShift.Id}", newShift))
+			{
+				if (!response.IsSuccessStatusCode)
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+		catch (Exception ex)
+		{
+			AnsiConsole.WriteLine($"API Service isn't responding. - {ex.Message}, Press any key to return to Main Menu");
+			return false;
+		}
+	}
 }

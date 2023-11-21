@@ -3,6 +3,7 @@ using ShiftsUI.Controllers;
 using Spectre.Console;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -90,35 +91,94 @@ internal class UserInterface
 			startOfShift = AnsiConsole.Ask<string>("Enter the start of shift (MM/dd/yyyy HH:mm):");
 			endOfShift = AnsiConsole.Ask<string>("Enter the end of shift (MM/dd/yyyy HH:mm):");
 
-		ShiftDto newShift = new()
-		{
-			//Id = 0,
-			EmployeeName = employeeName,
-			StartOfShift = DateTime.Parse(startOfShift),
-			EndOfShift = DateTime.Parse(endOfShift)
-		};
+			ShiftDto newShift = new()
+			{
+				EmployeeName = employeeName,
+				StartOfShift = DateTime.Parse(startOfShift),
+				EndOfShift = DateTime.Parse(endOfShift)
+			};
 
-		var result = await _controller.PostShift(newShift);
+			var result = await _controller.PostShift(newShift);
 
-		if (result)
-		{
-			AnsiConsole.WriteLine("Your shift has been added.");
-		}
-		else
-		{
-			AnsiConsole.WriteLine("Your shift didn't get added correctly, try again!");
-		}
+			if (result)
+			{
+				AnsiConsole.WriteLine("Your shift has been added.");
+			}
+			else
+			{
+				AnsiConsole.WriteLine("Your shift didn't get added correctly, try again!");
+			}
 		Console.WriteLine("Press any key to continue.");
 	}
 
-		public async Task UpdateShift()
+	public async Task UpdateShift()
+	{
+		Console.Clear();
+		List<Shift> shifts = (await _controller.GetShifts()).ToList();
+
+		Table table = new();
+		table.AddColumns("Id", "Employee Name", "Start of Shift", "End of Shift");
+
+		foreach (Shift shift in shifts)
 		{
-			//APIcalling.UpdateShift();
+			table.AddRow(
+				$"{shift.Id}",
+				$"{shift.EmployeeName}",
+				$"{shift.StartOfShift}",
+				$"{shift.EndOfShift}");
 		}
+
+		Console.Clear();
+		int selectedShift = AnsiConsole.Ask<int>("Enter the ID of the Shift you want to edit:");
+
+		if (selectedShift != 0)
+		{
+			Console.Clear();
+
+			string employeeName;
+			string startOfDate;
+			string endOfDate;
+			string dateFormat = "dd-MM-yy HH:mm";
+			CultureInfo cultureInfo = new CultureInfo("en-US");
+
+			var shift = await _controller.GetShift(selectedShift);
+
+			if (shift != null)
+			{
+				employeeName = AnsiConsole.Ask("Update the Employee Name:", shift.EmployeeName);
+
+				startOfDate = AnsiConsole.Ask("Update the Start of Shift:", shift.StartOfShift.ToString(dateFormat, cultureInfo));
+
+				endOfDate = AnsiConsole.Ask("Update the End of Shift:", shift.EndOfShift.ToString(dateFormat, cultureInfo));
+
+
+				ShiftDto newShift = new()
+				{
+					Id = shift.Id,
+					EmployeeName = employeeName,
+					StartOfShift = DateTime.Parse(startOfDate),
+					EndOfShift = DateTime.Parse(endOfDate)
+				};
+			}
+
+			bool result = await _controller.UpdateShift(newShift);
+
+			if (result)
+			{
+				AnsiConsole.WriteLine("Your shift has been updated");
+			}
+			else
+			{
+				AnsiConsole.WriteLine("Your shift hasn't been updated");
+			}
+
+			AnsiConsole.WriteLine("Press any key to return to Main Menu");
+		}
+	}
 
 		public async Task DeleteShift()
 		{
-			APIcalling.DeleteShift();
+			//APIcalling.DeleteShift();
 
 			Console.ReadKey();
 		}

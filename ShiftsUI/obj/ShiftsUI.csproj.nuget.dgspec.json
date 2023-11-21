@@ -11,7 +11,7 @@
         "projectName": "ShiftsUI",
         "projectPath": "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerApi\\ShiftsUI\\ShiftsUI.csproj",
         "packagesPath": "C:\\Users\\bedon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerApi\\ShiftsUI\\obj\\",
+        "outputPath": "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerAPI\\ShiftsUI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bedon\\AppData\\Roaming\\NuGet\\NuGet.Config",
