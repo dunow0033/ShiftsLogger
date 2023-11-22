@@ -165,14 +165,14 @@ internal class UserInterface
 
 				if (result)
 				{
-					AnsiConsole.WriteLine("Your shift has been updated");
+					AnsiConsole.WriteLine($"Shift {selectedShift} has been updated");
 				}
 				else
 				{
-					AnsiConsole.WriteLine("Your shift hasn't been updated");
+					AnsiConsole.WriteLine($"Shift {selectedShift} couldn't be updated");
 				}
 
-				AnsiConsole.WriteLine("Press any key to return to Main Menu");
+				AnsiConsole.WriteLine("\nPress any key to return to Main Menu");
 			}
 		}
 	}
@@ -202,13 +202,13 @@ internal class UserInterface
 
 		if (result)
 		{
-			AnsiConsole.WriteLine($"Shift {selectedShift} was deleted");
+			Console.WriteLine($"Shift {selectedShift} was deleted");
 		}
 		else
 		{
-			AnsiConsole.WriteLine($"Couldn't delete shift {selectedShift}");
+			Console.WriteLine($"Couldn't delete shift {selectedShift}");
 		}
 
-		AnsiConsole.WriteLine("Press any key to return to Main Menu");
+		Console.WriteLine("\nPress any key to return to Main Menu");
 	}
 }
