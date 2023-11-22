@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerApi\\ShiftsUI\\ShiftsUI.csproj": {}
+    "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerAPI\\ShiftsUI\\ShiftsUI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerApi\\ShiftsUI\\ShiftsUI.csproj": {
+    "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerAPI\\ShiftsUI\\ShiftsUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerApi\\ShiftsUI\\ShiftsUI.csproj",
+        "projectUniqueName": "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerAPI\\ShiftsUI\\ShiftsUI.csproj",
         "projectName": "ShiftsUI",
-        "projectPath": "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerApi\\ShiftsUI\\ShiftsUI.csproj",
+        "projectPath": "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerAPI\\ShiftsUI\\ShiftsUI.csproj",
         "packagesPath": "C:\\Users\\bedon\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerAPI\\ShiftsUI\\obj\\",
         "projectStyle": "PackageReference",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "N9abZO9fQO/iJ4/c9nr5nJEt+zaJNaQP9kQXi2q+RVUvg5UM/FR6SvvV4LZzpfcO8bR9MrBW4fQOwok6RLb/pg==",
+  "dgSpecHash": "rwveRAxv5H5QBl/kmQE9Xo8VDvZp0i7En0gMc8+dVsMSw36wieEPaV+CaYusvgqmdm1GLamt370jFNao6XrEWg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerApi\\ShiftsUI\\ShiftsUI.csproj",
+  "projectFilePath": "C:\\Users\\bedon\\source\\repos\\ShiftsLoggerAPI\\ShiftsUI\\ShiftsUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bedon\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\bedon\\.nuget\\packages\\spectre.console\\0.47.0\\spectre.console.0.47.0.nupkg.sha512",

@@ -128,7 +128,7 @@ internal class UserInterface
 				$"{shift.EndOfShift}");
 		}
 
-		Console.Clear();
+		AnsiConsole.Write(table);
 		int selectedShift = AnsiConsole.Ask<int>("Enter the ID of the Shift you want to edit:");
 
 		if (selectedShift != 0)
@@ -138,7 +138,7 @@ internal class UserInterface
 			string employeeName;
 			string startOfDate;
 			string endOfDate;
-			string dateFormat = "dd-MM-yy HH:mm";
+			string dateFormat = "MM-dd-yyyy HH:mm";
 			CultureInfo cultureInfo = new CultureInfo("en-US");
 
 			var shift = await _controller.GetShift(selectedShift);
@@ -159,20 +159,21 @@ internal class UserInterface
 					StartOfShift = DateTime.Parse(startOfDate),
 					EndOfShift = DateTime.Parse(endOfDate)
 				};
-			}
 
-			bool result = await _controller.UpdateShift(newShift);
 
-			if (result)
-			{
-				AnsiConsole.WriteLine("Your shift has been updated");
-			}
-			else
-			{
-				AnsiConsole.WriteLine("Your shift hasn't been updated");
-			}
+				bool result = await _controller.UpdateShift(newShift);
 
-			AnsiConsole.WriteLine("Press any key to return to Main Menu");
+				if (result)
+				{
+					AnsiConsole.WriteLine("Your shift has been updated");
+				}
+				else
+				{
+					AnsiConsole.WriteLine("Your shift hasn't been updated");
+				}
+
+				AnsiConsole.WriteLine("Press any key to return to Main Menu");
+			}
 		}
 	}
 
