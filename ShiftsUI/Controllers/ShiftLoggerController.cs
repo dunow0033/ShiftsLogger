@@ -26,7 +26,7 @@ internal class ShiftLoggerController
 		return await _apiRepo.PostShift(newShift);
 	}
 
-	internal async Task<bool> UpdateShift(ShiftDto newShift)
+	public async Task<bool> UpdateShift(ShiftDto newShift)
 	{
 		return await _apiRepo.UpdateShift(newShift);
 	}
@@ -34,5 +34,10 @@ internal class ShiftLoggerController
 	public async Task<Shift> GetShift(int id)
 	{
 		return await _apiRepo.GetShift(id);
+	}
+
+	public async Task<bool> DeleteShift(int selectedShift)
+	{
+		return await _apiRepo.DeleteShift(selectedShift);
 	}
 }

@@ -95,4 +95,26 @@ internal class ShiftLoggerApiAccess : IShiftsLoggerApiAccess
 			return false;
 		}
 	}
+
+	public async Task<bool> DeleteShift(int selectedShift)
+	{
+		try
+		{
+			using (HttpResponseMessage response = await _apiClient.DeleteAsync($"{selectedShift}"))
+			{
+				if (!response.IsSuccessStatusCode)
+				{
+					return false;
+				}
+			}
+
+			return true;
+		}
+		catch (Exception ex)
+		{
+			AnsiConsole.WriteLine($"API Service isn't responding. - {ex.Message}");
+			return false;
+		}
+
+	}
 }

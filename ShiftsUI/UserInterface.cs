@@ -179,8 +179,36 @@ internal class UserInterface
 
 		public async Task DeleteShift()
 		{
-			//APIcalling.DeleteShift();
+			Console.Clear();
+			List<Shift> shifts = (await _controller.GetShifts()).ToList();
 
-			Console.ReadKey();
+			Table table = new();
+			table.AddColumns("Id", "Employee Name", "Start of Shift", "End of Shift");
+
+			foreach (Shift shift in shifts)
+			{
+				table.AddRow(
+					$"{shift.Id}",
+					$"{shift.EmployeeName}",
+					$"{shift.StartOfShift}",
+					$"{shift.EndOfShift}");
+			}
+
+			AnsiConsole.Write(table);
+
+			int selectedShift = AnsiConsole.Ask<int>("Enter the ID of the Shift you want to remove:");
+
+		var result = await _controller.DeleteShift(selectedShift);
+
+		if (result)
+		{
+			AnsiConsole.WriteLine($"Shift {selectedShift} was deleted");
 		}
+		else
+		{
+			AnsiConsole.WriteLine($"Couldn't delete shift {selectedShift}");
+		}
+
+		AnsiConsole.WriteLine("Press any key to return to Main Menu");
+	}
 }
