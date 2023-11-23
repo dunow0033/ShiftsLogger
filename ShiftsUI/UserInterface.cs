@@ -160,7 +160,7 @@ internal class UserInterface
 			string employeeName;
 			string startOfDate;
 			string endOfDate;
-			string dateFormat = "MM-dd-yyyy HH:mm";
+			string dateFormat = "MM/dd/yyyy HH:mm";
 			CultureInfo cultureInfo = new CultureInfo("en-US");
 
 			var shift = await _controller.GetShift(selectedShift);
@@ -169,32 +169,51 @@ internal class UserInterface
 			{
 				employeeName = AnsiConsole.Ask("Update the Employee Name:", shift.EmployeeName);
 
-				startOfDate = AnsiConsole.Ask("Update the Start of Shift:", shift.StartOfShift.ToString(dateFormat, cultureInfo));
-
-				endOfDate = AnsiConsole.Ask("Update the End of Shift:", shift.EndOfShift.ToString(dateFormat, cultureInfo));
-
-
-				ShiftDto newShift = new()
+				do
 				{
-					Id = shift.Id,
-					EmployeeName = employeeName,
-					StartOfShift = DateTime.Parse(startOfDate),
-					EndOfShift = DateTime.Parse(endOfDate)
-				};
+					startOfDate = AnsiConsole.Ask("Update the Start of Shift:", shift.StartOfShift.ToString(dateFormat, cultureInfo));
+					if (!Validator.ValidateDateTime(startOfDate))
+					{
+						AnsiConsole.WriteLine("Invalid date, make sure the format is (MM/dd/yyyy HH:mm)");
+					}
+				} while (!Validator.ValidateDateTime(startOfDate));
 
 
-				bool result = await _controller.UpdateShift(newShift);
+				do {
+					do
+					{
+						endOfDate = AnsiConsole.Ask("Update the End of Shift:", shift.EndOfShift.ToString(dateFormat, cultureInfo));
+						if (!Validator.ValidateDateTime(endOfDate))
+						{
+							AnsiConsole.WriteLine("Invalid date, make sure the format is (MM/dd/yyyy HH:mm)");
+						}
+					} while (!Validator.ValidateDateTime(endOfDate));
+				} while(!Validator.AreDatesValid(DateTime.Parse(startOfDate), DateTime.Parse(endOfDate)));
 
-				if (result)
+
+				if (employeeName != shift.EmployeeName || startOfDate != shift.StartOfShift.ToString(dateFormat, cultureInfo) || endOfDate != shift.EndOfShift.ToString("d", cultureInfo))
 				{
-					AnsiConsole.WriteLine($"Shift {selectedShift} has been updated");
+					ShiftDto newShift = new()
+					{
+						Id = shift.Id,
+						EmployeeName = employeeName,
+						StartOfShift = DateTime.Parse(startOfDate),
+						EndOfShift = DateTime.Parse(endOfDate)
+					};
+
+					bool result = await _controller.UpdateShift(newShift);
+
+					if (result)
+					{
+						AnsiConsole.WriteLine($"Shift {selectedShift} has been updated");
+					}
+					else
+					{
+						AnsiConsole.WriteLine($"Shift {selectedShift} couldn't be updated");
+					}
+
+					AnsiConsole.WriteLine("\nPress any key to return to Main Menu");
 				}
-				else
-				{
-					AnsiConsole.WriteLine($"Shift {selectedShift} couldn't be updated");
-				}
-
-				AnsiConsole.WriteLine("\nPress any key to return to Main Menu");
 			}
 		}
 	}

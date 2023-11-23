@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spectre.Console;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -19,5 +20,18 @@ internal class Validator
 		}
 
 		return dateValid;
+	}
+
+	internal static bool AreDatesValid(DateTime startDate, DateTime endDate)
+	{
+		if (startDate < endDate)
+		{
+			return true;
+		}
+		else
+		{
+			AnsiConsole.WriteLine("End of shift can't be before start of shift");
+			return false;
+		}
 	}
 }
