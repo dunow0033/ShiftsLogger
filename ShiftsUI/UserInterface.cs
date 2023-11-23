@@ -67,16 +67,23 @@ internal class UserInterface
 			Console.Clear();
 			List<Shift>? shifts = (await _controller.GetShifts()).ToList();
 
-			Table table = new Table();
-			table.Expand();
-			table.AddColumns("Employee Name", "Start of Shift", "End of Shift");
-
-			foreach (Shift shift in shifts)
+			if (shifts != null)
 			{
-				table.AddRow($"{shift.EmployeeName}", $"{shift.StartOfShift}", $"{shift.EndOfShift}");
+				Table table = new Table();
+				table.Expand();
+				table.AddColumns("Employee Name", "Start of Shift", "End of Shift");
+
+				foreach (Shift shift in shifts)
+				{
+					table.AddRow($"{shift.EmployeeName}", $"{shift.StartOfShift}", $"{shift.EndOfShift}");
+				}
+
+				AnsiConsole.Write(table);
 			}
-			
-			AnsiConsole.Write(table);
+			else
+			{
+				Console.WriteLine("No shifts have been added yet!!  Please add some shifts!!");
+			}
 
 			Console.WriteLine("\n\nPress Any Key to continue......");
 	}
@@ -88,8 +95,23 @@ internal class UserInterface
 
 			string employeeName = AnsiConsole.Ask<string>("Enter the employee name:");
 		
-			startOfShift = AnsiConsole.Ask<string>("Enter the start of shift (MM/dd/yyyy HH:mm):");
-			endOfShift = AnsiConsole.Ask<string>("Enter the end of shift (MM/dd/yyyy HH:mm):");
+			do {
+				startOfShift = AnsiConsole.Ask<string>("Enter the start of shift (MM/dd/yyyy HH:mm):");
+
+				if (!Validator.ValidateDateTime(startOfShift))
+				{
+					AnsiConsole.WriteLine("Invalid date, make sure the format is (MM/dd/yyyy HH:mm)");
+				}
+			} while(!Validator.ValidateDateTime(startOfShift));
+
+			do {
+				endOfShift = AnsiConsole.Ask<string>("Enter the end of shift (MM/dd/yyyy HH:mm):");
+
+				if (!Validator.ValidateDateTime(endOfShift))
+				{
+					AnsiConsole.WriteLine("Invalid date, make sure the format is (MM/dd/yyyy HH:mm)");
+				}
+			} while(!Validator.ValidateDateTime(endOfShift));
 
 			ShiftDto newShift = new()
 			{
